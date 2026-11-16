@@ -1,0 +1,7 @@
+# Rustfmt configuration. Stable-only options so `cargo fmt --check` works on
+# every CI runner without nightly toolchains.
+edition = "2021"
+max_width = 100
+use_field_init_shorthand = true
+use_try_shorthand = true
+newline_style = "Unix"

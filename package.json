@@ -1,0 +1,23 @@
+{
+  "name": "audiomaster",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Audiomaster broadcast playout and automation studio",
+  "workspaces": [
+    "ui"
+  ],
+  "scripts": {
+    "dev": "npm --workspace ui run dev",
+    "build": "npm --workspace ui run build",
+    "preview": "npm --workspace ui run preview",
+    "test": "npm --workspace ui run test",
+    "typecheck": "npm --workspace ui run typecheck",
+    "lint": "npm --workspace ui run lint",
+    "format": "npm --workspace ui run format",
+    "format:check": "npm --workspace ui run format:check",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

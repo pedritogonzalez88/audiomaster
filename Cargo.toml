@@ -1,0 +1,55 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/domain",
+    "crates/application",
+    "crates/playout-engine",
+    "crates/infrastructure/db",
+    "crates/infrastructure/audio",
+    "src-tauri",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Proprietary"
+rust-version = "1.77"
+authors = ["Audiomaster"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+rusqlite = { version = "0.32", features = ["bundled", "functions", "backup"] }
+symphonia = { version = "0.5", features = ["all"] }
+cpal = "0.15"
+ringbuf = "0.4"
+crossbeam-channel = "0.5"
+parking_lot = "0.12"
+
+domain = { path = "crates/domain" }
+application = { path = "crates/application" }
+playout-engine = { path = "crates/playout-engine" }
+infra-db = { path = "crates/infrastructure/db" }
+infra-audio = { path = "crates/infrastructure/audio" }
+
+[workspace.lints.rust]
+unsafe_code = "warn"
+unused_lifetimes = "warn"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+dbg_macro = "deny"
+print_stdout = "warn"
+print_stderr = "warn"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = true
+
+[profile.dev.package."*"]
+opt-level = 1

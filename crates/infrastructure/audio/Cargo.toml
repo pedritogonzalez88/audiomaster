@@ -1,0 +1,23 @@
+[package]
+name = "infra-audio"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+application.workspace = true
+domain.workspace = true
+symphonia.workspace = true
+cpal.workspace = true
+crossbeam-channel.workspace = true
+ringbuf.workspace = true
+parking_lot.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+sha2 = "0.10"
+arc-swap = "1"
+
+[lints]
+workspace = true
